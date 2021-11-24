@@ -104,7 +104,7 @@ The main tasks for this exercise are as follows:
     | Subscription | the name of the Azure subscription you are using in this lab |
     | Resource group | **az30410a-labRG** |
 
-1. On the **Create an Azure VM with a new AD Forest** blade, select **Review + create** and select **Create**.
+1. On the **Create an Azure VM with a new AD Forest** blade, select **Review + create** and then select **Create**.
 
     > **Note**: Wait for the deployment to complete before you proceed to the next task of this exercise. The deployment might take about 15 minutes. You will use the virtual machine deployed in this task in the third exercise of this lab.
 
@@ -121,7 +121,7 @@ The main tasks for this exercise are as follows:
    $vnet = Get-AzVirtualNetwork -ResourceGroupName $resourceGroupName -Name 'az30410a-vnet'
    $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
      -Name 'AzureBastionSubnet' `
-     -AddressPrefix 10.0.254.0/24 `
+     -AddressPrefix 10.10.254.0/24 `
      -VirtualNetwork $vnet
    $vnet | Set-AzVirtualNetwork
    ```
@@ -138,7 +138,7 @@ The main tasks for this exercise are as follows:
    |Region|the same Azure region to which you deployed the resources in the previous tasks of this exercise|
    |Tier|**Basic**|
    |Virtual network|**az30410a-vnet**|
-   |Subnet|**AzureBastionSubnet (10.0.254.0/24)**|
+   |Subnet|**AzureBastionSubnet (10.10.254.0/24)**|
    |Public IP address|**Create new**|
    |Public IP name|**az30410a-vnet-ip**|
 
@@ -274,14 +274,14 @@ The main tasks for this exercise are as follows:
 
 1. In the Azure portal, search for and select **Virtual machines** and, on the **Virtual machines** blade, select **az30410a-vm1**.
 
-1. On the **az30410a-vm1** blade, select **Connect**, in the drop-down menu, select **RDP**, on the **RDP** tab of the **az30410a-vm1 | Connect** blade, in the **IP address** drop-down list, select the **Load balancer public IP address** entry, select **Download RDP File** and open the downloaded RDP file.
+1. On the **az30410a-vm1** blade, select **Connect**, in the drop-down menu, select **Bastion**, on the **Bastion** tab of the **az30410a-vm1 \| Connect** blade, select **Use Bastion**.
 
-1. When prompted, sign in with the following credentials:
+1. When prompted, provde the following credentials and select **Connect**:
 
-    | Setting | Value | 
-    | --- | --- |
-    | User Name | **Student** |
-    | Password | **Pa55w.rd1234** |
+   |Setting|Value|
+   |---|---|
+   |User Name|**Student**|
+   |Password|**Pa55w.rd1234**|
 
 1. Within the Remote Desktop session to **az30410a-vm1**, in the Server Manager window, select **Local Server**, select the **On** link next to the **IE Enhanced Security Configuration** label, and, in the **IE Enhanced Security Configuration** dialog box, select both **Off** options.
 
