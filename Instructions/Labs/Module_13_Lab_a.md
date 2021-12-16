@@ -130,15 +130,18 @@ The main tasks for this exercise are as follows:
 1. From the Cloud Shell pane, run the following to create a new Azure AD application that you will associate with the service principal you create in the subsequent steps of this task:
 
    ```powershell
-   $password = 'Pa55w.rd1234.@z304'
-   $securePassword = ConvertTo-SecureString -Force -AsPlainText -String $password
-   $az30304aadapp = New-AzADApplication -DisplayName 'az30304aadsp' -HomePage 'http://az30304aadsp' -IdentifierUris 'http://az30304aadsp' -Password $securePassword
+
+   $az30304aadapp = New-AzADApplication -DisplayName 'az30304aadsp' -HomePage 'http://your-aad-domain-name' IdentifierUris 'http://your-aad-domain-name' -SignInAudience AzureADMyOrg 
+
+
    ```
 
 1. From the Cloud Shell pane, run the following to create a new Azure AD service principal associated with the application you created in the previous step:
 
    ```powershell
-   New-AzADServicePrincipal -ApplicationId $az30304aadapp.ApplicationId.Guid -SkipAssignment
+   
+    New-AzADServicePrincipal -ApplicationId $az30304aadapp.AppID
+    
    ```
 
 1. In the output of the **New-AzADServicePrincipal** command, note the value of the **ApplicationId** property. You will need it later in this exercise.
