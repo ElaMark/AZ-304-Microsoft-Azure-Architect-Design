@@ -171,6 +171,16 @@ The main tasks for this exercise are as follows:
     | Assign access to | **User, group, or service principal** |
     | Select | **az30304aadsp** |
 
+#### Task 3: Generate a Client Secret in AAD
+
+1. In the Azure Portal open Azure Active Directory
+2. Open **App registrations**.
+3. Click in the app you registered earlier: **az30304aadsp**
+4. Click **Certificates and secrets**
+5. Click **New Client Secret**
+6. For the **description** type **LGApp**
+7. Click **ADD**
+8. Copy the secret **Value** to somewhere. You'll need it in the next exercise. 
 
 ### Exercise 2: Implement an Azure logic app
   
@@ -218,7 +228,7 @@ The main tasks for this exercise are as follows:
     | --- | --- |
     | Connection Name | **az30304egconnection** |
     | Client ID | the value of the **ApplicationId** property you identified earlier in this exercise |
-    | Client Secret | **Pa55w.rd1234.@z304** |
+    | Client Secret | **paste in the value that you copied when generating the client secret in AAD (Ex1, Task3, previously)** |
     | Tenant | the value of the **TenantId** property you identified earlier in this exercise |
 
 1. In the **When a resource event occurs** tile, specify the following settings:
